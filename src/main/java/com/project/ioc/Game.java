@@ -42,8 +42,19 @@ public class Game {
         return currentDirection;
     }
 
-    public void setCurrentDirection(Direction currentDirection) {
-        this.currentDirection = currentDirection;
+    public void setCurrentDirection(Direction newDirection) {
+        if(newDirection == null) return;
+        if(currentDirection!=null && isOpposite(this.currentDirection, newDirection)) {
+            System.out.println("Forbidden move, the snake will keep the same direction");
+        } else{
+            this.currentDirection = newDirection;
+        }
+    }
+    public boolean isOpposite(Direction d1, Direction d2) {
+        return (d1==Direction.RIGHT && d2==Direction.LEFT ) ||
+                (d1==Direction.UP && d2==Direction.DOWN )
+                || (d1==Direction.DOWN && d2==Direction.UP )
+                || (d1==Direction.LEFT && d2==Direction.RIGHT );
     }
 
     public void startGame(){

@@ -35,6 +35,8 @@ public class Snake {
 
         snakeBody.remove(snakeBody.size()-1);
 
+        // [HEAD S S S S ]
+
         snakeBody.add(0,nextCell);
         nextCell.setType(CellType.SNAKE);
         head = nextCell;

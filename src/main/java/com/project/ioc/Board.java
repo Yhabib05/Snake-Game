@@ -14,10 +14,25 @@ public class Board {
         }
     }
 
-    public void printBoard(){
+    public void printBoard(Snake snake, Direction direction ){
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                System.out.print(getCell(i, j).getType() + " ");
+                Cell cell = getCell(i,j);
+                if(cell == snake.getHead()){
+                    if(direction==null){
+                        System.out.print("S ");
+                    } else{
+                        System.out.print(switch(direction){
+                            case Direction.UP -> "↑ ";
+                            case Direction.DOWN -> "↓ ";
+                            case Direction.LEFT -> "← ";
+                            case Direction.RIGHT -> "→ ";
+                        });
+                    }
+                }
+                else{
+                    System.out.print(getCell(i, j).getType() + " ");
+                }
             }
             System.out.println(" ");
         }
