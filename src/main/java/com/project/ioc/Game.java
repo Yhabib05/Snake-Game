@@ -119,6 +119,8 @@ public class Game {
 
         if( snake.checkCrash(nextCell)){
             setGameOver(true);
+            System.out.println("It crashes");
+            System.out.println("---------- SEEEEEEEET------  " + snake.getBodySet());
             System.out.println("Game over.");
             return;
         } else if(nextCell.getType()==CellType.FOOD){
